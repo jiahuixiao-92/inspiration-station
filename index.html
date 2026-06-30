@@ -589,6 +589,7 @@
   display: none;
   margin-top: 28px;
   padding: 28px;
+  scroll-margin-top: 110px;
   border: 1px solid var(--line);
   border-radius: 34px;
   background:
@@ -953,6 +954,44 @@
       section { padding: 64px 0; }
       .thumb { height: 210px; }
       .footer { flex-direction: column; }
+       .project-expand {
+    padding: 22px 18px;
+    border-radius: 28px;
+    margin-top: 24px;
+  }
+
+  .project-expand-head {
+    display: block;
+    margin-bottom: 22px;
+  }
+
+  .project-expand-head h2 {
+    font-size: 34px;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+  }
+
+  .project-expand-head p {
+    font-size: 15px;
+    line-height: 1.85;
+    max-width: 100%;
+  }
+
+  .detail-close {
+    margin-top: 18px;
+    padding: 9px 14px;
+    font-size: 14px;
+  }
+
+  .project-gallery {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .project-gallery img {
+    border-radius: 18px;
+  }
     }
   </style>
 </head>
