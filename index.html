@@ -664,7 +664,14 @@
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.04);
 }
+.poster-gallery {
+  grid-template-columns: 1fr;
+}
 
+.poster-gallery img {
+  max-height: none;
+  object-fit: contain;
+}
 .project-trigger {
   cursor: pointer;
 }
@@ -1143,7 +1150,7 @@
           </div>
         </article>
 
-        <article class="work-card wide reveal" data-category="graphic" style="--g1: linear-gradient(135deg, #ff7a45, #5b1f12); --g2: linear-gradient(135deg, #61d8ff, #17374a);">
+        <article class="work-card wide reveal project-trigger" data-category="graphic" data-target="poster-detail" style="--g1: linear-gradient(135deg, #ff7a45, #5b1f12); --g2: linear-gradient(135deg, #61d8ff, #17374a);">
           <div class="thumb has-image">
             <img src="assets/graphic-posters.jpg" alt="其他设计海报合集">
             <span class="thumb-lines"></span>
@@ -1153,19 +1160,6 @@
             <div class="work-meta"><span>Graphic Design / Poster</span><span>2024-2025</span></div>
             <h3>其他设计｜海报、邀请函与校园视觉</h3>
             <p>整理活动海报、校园宣传物料、邀请函与文创视觉练习，关注字体层级、色彩情绪、版式节奏与信息传播效率。</p>
-          </div>
-        </article>
-
-        <article class="work-card reveal" data-category="graphic" style="--g1: linear-gradient(135deg, #fff06a, #4c3f0b); --g2: linear-gradient(135deg, #ff5fd2, #57204d);">
-          <div class="thumb has-image">
-            <img src="assets/graphic-invitation.jpg" alt="邀请函设计展示">
-            <span class="thumb-lines"></span>
-            <div class="thumb-label"><small>Invitation</small>邀请函设计</div>
-          </div>
-          <div class="work-body">
-            <div class="work-meta"><span>Graphic Design / Layout</span><span>2024-2025</span></div>
-            <h3>邀请函与节日视觉设计</h3>
-            <p>结合活动主题与校园文化语境，完成邀请函、节日视觉与信息排版设计，在图形氛围与可读性之间建立平衡。</p>
           </div>
         </article>
 
@@ -1257,6 +1251,26 @@
     <img src="assets/enongjiang-05.png" alt="E览农讲服务蓝图">
     <img src="assets/enongjiang-06.png" alt="E览农讲使用流程图">
     <img src="assets/enongjiang-07.png" alt="E览农讲界面设计展示">
+  </div>
+</div>
+      <div class="project-gallery poster-gallery">
+  <img src="assets/poster-collection.png" alt="平面视觉与海报设计合集">
+  <img src="assets/invitation-01.png" alt="草坪音乐节邀请函与活动视觉设计一">
+  <img src="assets/invitation-02.png" alt="草坪音乐节邀请函与活动视觉设计二">
+</div>
+  <div class="project-expand-head">
+    <div>
+      <p class="section-kicker">Graphic Design</p>
+      <h2>平面视觉与海报设计｜项目内容展开</h2>
+      <p>
+        这一部分整理了我在校园宣传、节日节点、公益主题与活动视觉中的海报设计实践。作品围绕信息传达、视觉层级、字体排版与色彩情绪展开，尝试通过不同风格的画面语言提升主题传播效果与视觉记忆点。
+      </p>
+    </div>
+    <button class="detail-close" type="button">收起内容</button>
+  </div>
+
+  <div class="project-gallery poster-gallery">
+    <img src="assets/poster-collection.png" alt="平面视觉与海报设计合集">
   </div>
 </div>
     </section>
