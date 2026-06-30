@@ -536,7 +536,25 @@
         linear-gradient(45deg, transparent 0 48%, rgba(255,255,255,0.12) 48% 49%, transparent 49% 100%);
       mix-blend-mode: screen;
     }
+    .thumb-label {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+  z-index: 2;
+  color: rgba(255,255,255,0.92);
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
 
+.thumb-label small {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
     .work-body {
       padding: 22px;
     }
@@ -862,51 +880,54 @@
       </div>
 
       <div class="work-grid">
-        <article class="work-card wide reveal" data-category="visual" style="--g1: linear-gradient(135deg, #b7ff4a, #143b20); --g2: linear-gradient(135deg, #61d8ff, #192654);">
-          <div class="thumb"><span class="thumb-lines"></span></div>
-          <div class="work-body">
-            <div class="work-meta"><span>Visual System</span><span>2026</span></div>
-            <h3>城市夜行视觉系统</h3>
-            <p>以霓虹、地图网格和夜间运动轨迹为核心，构建一套适合活动海报与网页视觉的图形语言。</p>
-          </div>
-        </article>
+  <article class="work-card wide reveal" data-category="ui" style="--g1: linear-gradient(135deg, #b7ff4a, #143b20); --g2: linear-gradient(135deg, #61d8ff, #192654);">
+    <div class="thumb">
+      <span class="thumb-lines"></span>
+      <div class="thumb-label"><small>Internship</small>实习UI界面</div>
+    </div>
+    <div class="work-body">
+      <div class="work-meta"><span>UI Design / Internship</span><span>2025-2026</span></div>
+      <h3>实习 UI 界面设计</h3>
+      <p>收录我在实习期间参与的界面视觉与产品设计支持内容，重点关注页面结构、视觉层级、组件规范和用户体验表达，呈现从需求理解到界面输出的实践过程。</p>
+    </div>
+  </article>
 
-        <article class="work-card reveal" data-category="ai" style="--g1: linear-gradient(135deg, #ff5fd2, #3b1434); --g2: linear-gradient(135deg, #fff06a, #4c3f0b);">
-          <div class="thumb"><span class="thumb-lines"></span></div>
-          <div class="work-body">
-            <div class="work-meta"><span>AI Image</span><span>Prompt</span></div>
-            <h3>合成梦境图像</h3>
-            <p>使用关键词组合控制材质、镜头和情绪，生成超现实风格的视觉草图。</p>
-          </div>
-        </article>
+  <article class="work-card reveal" data-category="practice" style="--g1: linear-gradient(135deg, #ff5fd2, #3b1434); --g2: linear-gradient(135deg, #fff06a, #4c3f0b);">
+    <div class="thumb">
+      <span class="thumb-lines"></span>
+      <div class="thumb-label"><small>Course Works</small>课程项目</div>
+    </div>
+    <div class="work-body">
+      <div class="work-meta"><span>Course Project / Interface</span><span>2025</span></div>
+      <h3>课程项目设计</h3>
+      <p>包括 E览农讲、艺刻 ART TIME 等课程项目，围绕文旅导览、AI 辅助创作管理等主题，展示调研分析、用户画像、信息架构、流程设计与高保真界面输出。</p>
+    </div>
+  </article>
 
-        <article class="work-card reveal" data-category="graphic" style="--g1: linear-gradient(135deg, #ffffff, #606060); --g2: linear-gradient(135deg, #b7ff4a, #2f5017);">
-          <div class="thumb"><span class="thumb-lines"></span></div>
-          <div class="work-body">
-            <div class="work-meta"><span>Poster</span><span>Graphic</span></div>
-            <h3>实验字体海报</h3>
-            <p>基于强对比字体和大面积留白，测试信息层级与视觉张力。</p>
-          </div>
-        </article>
+  <article class="work-card reveal" data-category="graphic" style="--g1: linear-gradient(135deg, #ffffff, #606060); --g2: linear-gradient(135deg, #b7ff4a, #2f5017);">
+    <div class="thumb">
+      <span class="thumb-lines"></span>
+      <div class="thumb-label"><small>Graphic Design</small>平面视觉</div>
+    </div>
+    <div class="work-body">
+      <div class="work-meta"><span>Graphic Design / Visual</span><span>2024-2025</span></div>
+      <h3>平面视觉设计</h3>
+      <p>整理海报、活动视觉、校园宣传物料与墙绘视觉项目，尝试通过字体、色彩、图形和版式建立更清晰的视觉表达与传播效果。</p>
+    </div>
+  </article>
 
-        <article class="work-card reveal" data-category="3d" style="--g1: linear-gradient(135deg, #61d8ff, #12445d); --g2: linear-gradient(135deg, #c8a3ff, #2f194f);">
-          <div class="thumb"><span class="thumb-lines"></span></div>
-          <div class="work-body">
-            <div class="work-meta"><span>3D Object</span><span>Blender</span></div>
-            <h3>玻璃质感装置</h3>
-            <p>探索半透明材质、反射环境与抽象形体之间的空间关系。</p>
-          </div>
-        </article>
-
-        <article class="work-card wide reveal" data-category="visual" style="--g1: linear-gradient(135deg, #ff7a45, #5b1f12); --g2: linear-gradient(135deg, #61d8ff, #17374a);">
-          <div class="thumb"><span class="thumb-lines"></span></div>
-          <div class="work-body">
-            <div class="work-meta"><span>Brand Moodboard</span><span>Identity</span></div>
-            <h3>未来感品牌情绪板</h3>
-            <p>通过色彩、材质、图像参考和关键词构建品牌视觉方向，用于提案前期探索。</p>
-          </div>
-        </article>
-      </div>
+  <article class="work-card wide reveal" data-category="product" style="--g1: linear-gradient(135deg, #61d8ff, #12445d); --g2: linear-gradient(135deg, #c8a3ff, #2f194f);">
+    <div class="thumb">
+      <span class="thumb-lines"></span>
+      <div class="thumb-label"><small>Product Design</small>产品设计</div>
+    </div>
+    <div class="work-body">
+      <div class="work-meta"><span>Product Design / Service</span><span>2025</span></div>
+      <h3>产品设计作品</h3>
+      <p>包含 Mah Jong 沙发扎染系列、平安震听障老人出行安全装置等项目，关注非遗元素转译、适老化设计、功能结构与情感化体验表达。</p>
+    </div>
+  </article>
+</div>
     </section>
 
     <section id="labs" class="shell">
