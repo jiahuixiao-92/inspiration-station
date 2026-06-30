@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html  lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>肖佳惠设计作品集 | Jiahui Xiao Portfolio</title>
+  <style>
+    :root {
+      --bg: #050507;
+      --panel: rgba(255, 255, 255, 0.055);
+      --panel-strong: rgba(255, 255, 255, 0.095);
+      --text: #f4f4f5;
+      --muted: #9ca3af;
+      --line: rgba(255, 255, 255, 0.12);
+      --accent: #b7ff4a;
+      --accent-2: #61d8ff;
+      --accent-3: #ff5fd2;
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(183, 255, 74, 0.18), transparent 28%),
+        radial-gradient(circle at 82% 8%, rgba(97, 216, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 72% 78%, rgba(255, 95, 210, 0.12), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 88%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 20%), rgba(183, 255, 74, 0.11), transparent 24%);
+      transition: background 0.15s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 18px;
+      z-index: 50;
+      margin: 18px auto 0;
+      width: min(1180px, calc(100% - 40px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 14px 12px 20px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(5, 5, 7, 0.74);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #111;
+      font-size: 18px;
+      box-shadow: 0 0 36px rgba(183, 255, 74, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      padding: 10px 13px;
+      color: var(--muted);
+      font-size: 14px;
+      border-radius: 999px;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: var(--panel-strong);
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--text);
+      color: #08080a;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255,255,255,0.12);
+    }
+
+    .hero {
+      padding: 118px 0 80px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(183,255,74,0.8);
+      animation: pulse 1.9s infinite;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 12px rgba(183,255,74,0); }
+      100% { box-shadow: 0 0 0 0 rgba(183,255,74,0); }
+    }
+
+    .hero h1 {
+      font-size: clamp(56px, 8vw, 116px);
+      line-height: 0.92;
+      letter-spacing: -0.035em;
+      max-width: 860px;
+    }
+
+    .hero h1 span {
+      display: block;
+      background: linear-gradient(120deg, #fff, #d9ff89 45%, #78e7ff 86%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      margin-top: 28px;
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #0c0d0a;
+      border-color: transparent;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    .hero-board {
+      position: relative;
+      min-height: 560px;
+      border-radius: 38px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.03)),
+        rgba(255,255,255,0.04);
+      overflow: hidden;
+      box-shadow: 0 32px 90px rgba(0,0,0,0.42);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(0.2px);
+      opacity: 0.9;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .orb.one {
+      width: 210px;
+      height: 210px;
+      left: 34px;
+      top: 56px;
+      background: radial-gradient(circle at 35% 30%, #fff, var(--accent) 34%, #2b4f18 72%);
+    }
+
+    .orb.two {
+      width: 150px;
+      height: 150px;
+      right: 34px;
+      top: 130px;
+      background: radial-gradient(circle at 35% 30%, #fff, var(--accent-2) 36%, #12465c 72%);
+      animation-delay: -1.5s;
+    }
+
+    .orb.three {
+      width: 120px;
+      height: 120px;
+      left: 150px;
+      bottom: 82px;
+      background: radial-gradient(circle at 35% 30%, #fff, var(--accent-3) 36%, #57204d 72%);
+      animation-delay: -3s;
+    }
+
+    @keyframes float {
+      50% { transform: translate3d(0, -22px, 0) rotate(5deg); }
+    }
+
+    .board-card {
+      position: absolute;
+      right: 28px;
+      bottom: 28px;
+      left: 28px;
+      padding: 24px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: rgba(5, 5, 7, 0.7);
+      backdrop-filter: blur(18px);
+    }
+
+    .board-card h2 {
+      font-size: 28px;
+      letter-spacing: -0.05em;
+      margin-bottom: 10px;
+    }
+
+    .board-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .marquee {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 22s linear infinite;
+    }
+
+    .marquee span {
+      padding: 18px 24px;
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      white-space: nowrap;
+    }
+
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+    }
+
+    .section-desc {
+      max-width: 430px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .glass-card {
+      padding: 26px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--panel);
+      min-height: 240px;
+      transition: 0.28s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(circle at 20% 0%, rgba(183,255,74,0.16), transparent 40%);
+      opacity: 0;
+      transition: 0.28s ease;
+      pointer-events: none;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-7px);
+      background: var(--panel-strong);
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-index {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 46px;
+    }
+
+    .glass-card h3 {
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .glass-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      position: relative;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.045);
+      color: var(--muted);
+      padding: 10px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.22s ease;
+      font: inherit;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--text);
+      color: #050507;
+      border-color: transparent;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .work-card {
+      grid-column: span 4;
+      min-height: 390px;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.045);
+      transition: 0.32s ease;
+      position: relative;
+    }
+
+    .work-card.wide {
+      grid-column: span 8;
+    }
+
+    .work-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .thumb {
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .thumb::before,
+    .thumb::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(2px);
+    }
+
+    .thumb::before {
+      width: 220px;
+      height: 220px;
+      left: 12%;
+      top: 12%;
+      background: var(--g1);
+      opacity: 0.88;
+    }
+
+    .thumb::after {
+      width: 170px;
+      height: 170px;
+      right: 8%;
+      bottom: 8%;
+      background: var(--g2);
+      opacity: 0.75;
+    }
+
+    .thumb-lines {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 0 42%, rgba(255,255,255,0.16) 42% 43%, transparent 43% 100%),
+        linear-gradient(45deg, transparent 0 48%, rgba(255,255,255,0.12) 48% 49%, transparent 49% 100%);
+      mix-blend-mode: screen;
+    }
+
+    .thumb.has-image::before,
+    .thumb.has-image::after {
+      display: none;
+    }
+
+    .thumb.has-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.78;
+      transform: scale(1.03);
+      transition: 0.32s ease;
+    }
+
+    .work-card:hover .thumb.has-image img {
+      opacity: 0.92;
+      transform: scale(1.08);
+    }
+
+    .thumb.has-image .thumb-lines {
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.72)),
+        linear-gradient(120deg, transparent 0 46%, rgba(255,255,255,0.16) 46% 47%, transparent 47% 100%);
+      mix-blend-mode: normal;
+    }
+
+    .thumb-label {
+      position: absolute;
+      left: 24px;
+      bottom: 22px;
+      z-index: 2;
+      color: rgba(255,255,255,0.92);
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      text-shadow: 0 10px 24px rgba(0,0,0,0.42);
+    }
+
+    .thumb-label small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .project-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .project-detail {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .project-detail img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      opacity: 0.86;
+    }
+
+    .project-detail-body {
+      padding: 24px;
+    }
+
+    .project-detail-body h3 {
+      font-size: 26px;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .project-detail-body p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .project-tags span {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .work-body {
+      padding: 22px;
+    }
+
+    .work-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .work-body h3 {
+      font-size: 25px;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .work-body p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .labs {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+    }
+
+    .ai-panel,
+    .three-panel {
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .ai-panel {
+      padding: 28px;
+      min-height: 440px;
+    }
+
+    .prompt-box {
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.07);
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .recommendation {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.055);
+    }
+
+    .rec-dot {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .recommendation strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .recommendation span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .three-panel {
+      position: relative;
+      min-height: 440px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(97,216,255,0.13), transparent 35%),
+        rgba(255,255,255,0.04);
+    }
+
+    .cube {
+      width: 188px;
+      height: 188px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin 11s linear infinite;
+    }
+
+    .face {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.035));
+      box-shadow: inset 0 0 40px rgba(255,255,255,0.08);
+    }
+
+    .front { transform: translateZ(94px); }
+    .back { transform: rotateY(180deg) translateZ(94px); }
+    .left { transform: rotateY(-90deg) translateZ(94px); }
+    .right { transform: rotateY(90deg) translateZ(94px); }
+    .top { transform: rotateX(90deg) translateZ(94px); }
+    .bottom { transform: rotateX(-90deg) translateZ(94px); }
+
+    @keyframes spin {
+      from { transform: rotateX(-18deg) rotateY(0deg); }
+      to { transform: rotateX(-18deg) rotateY(360deg); }
+    }
+
+    .timeline {
+      border-left: 1px solid var(--line);
+      margin-left: 10px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 30px 28px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 2px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(183,255,74,0.12);
+    }
+
+    .timeline-item time {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .timeline-item h3 {
+      margin: 8px 0 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 760px;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 86px 32px;
+      border: 1px solid var(--line);
+      border-radius: 42px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(183,255,74,0.16), transparent 38%),
+        rgba(255,255,255,0.052);
+    }
+
+    .contact h2 {
+      font-size: clamp(40px, 7vw, 88px);
+      line-height: 0.95;
+      letter-spacing: -0.075em;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 26px;
+      line-height: 1.8;
+    }
+
+    .footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 86px; }
+      .hero-board { min-height: 460px; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .work-card, .work-card.wide { grid-column: span 12; }
+      .labs { grid-template-columns: 1fr; }
+      .project-detail-grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-desc { margin-top: 16px; }
+    }
+
+    @media (max-width: 560px) {
+      .shell, .nav { width: min(100% - 24px, 1180px); }
+      .nav { top: 10px; }
+      .brand span:last-child { display: none; }
+      .hero h1 { font-size: 54px; }
+      .hero-board { min-height: 420px; }
+      .orb.one { width: 160px; height: 160px; }
+      .orb.two { width: 116px; height: 116px; }
+      .stats { grid-template-columns: 1fr; }
+      section { padding: 64px 0; }
+      .thumb { height: 210px; }
+      .footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="#top" class="brand" aria-label="返回首页">
+      <span class="brand-mark">✦</span>
+      <span>Jiahui Xiao Design Portfolio</span>
+    </a>
+    <div class="nav-links">
+      <a href="#method">方法论</a>
+      <a href="#works">作品精选</a>
+      <a href="#labs">更多探索</a>
+      <a href="#about">关于</a>
+    </div>
+    <a class="nav-cta" href="#contact">联系我</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-text reveal">
+        <div class="eyebrow"><span class="pulse"></span> UI / Visual Design Portfolio / 2026</div>
+        <h1>Designing clear. <span>Engaging digital experiences.</span></h1>
+        <p class="hero-copy">我关注UI界面设计、视觉层级、品牌表达与数字体验。这里收录了我的实习项目、课程作品、产品设计、平面视觉与个人创意探索，记录我从用户研究、信息架构、界面设计到最终视觉输出的完整设计过程。</p>
+        <div class="hero-actions">
+          <a href="#works" class="button primary">查看作品项目 →</a>
+          <a href="#method" class="button">了解设计方法</a>
+        </div>
+      </div>
+
+      <div class="hero-board reveal">
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="orb three"></div>
+        <div class="board-card">
+          <h2>Personal Design Archive</h2>
+          <p>这里整理了我的UI界面、产品设计与平面视觉作品。每个项目都围绕具体场景展开，展示从问题发现、用户分析、功能规划到视觉落地的设计过程。</p>
+          <div class="stats">
+            <div class="stat"><strong>06</strong><span>设计项目</span></div>
+            <div class="stat"><strong>03</strong><span>设计方向</span></div>
+            <div class="stat"><strong>2026</strong><span>Portfolio</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>UI Design</span><span>Product Design</span><span>Service Design</span><span>Graphic Design</span><span>Brand Visual</span><span>Portfolio 2026</span>
+        <span>UI Design</span><span>Product Design</span><span>Service Design</span><span>Graphic Design</span><span>Brand Visual</span><span>Portfolio 2026</span>
+      </div>
+    </div>
+
+    <section id="method" class="shell">
+      <div class="section-head reveal">
+        <div>
+          <p class="section-kicker">Design Process</p>
+          <h2 class="section-title">从问题发现到视觉落地</h2>
+        </div>
+        <p class="section-desc">我的设计过程通常从用户场景和项目背景出发，通过调研分析、信息架构、功能规划与视觉规范，逐步完成界面和产品方案的表达。</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="glass-card reveal">
+          <div class="card-index">01 / Research</div>
+          <h3>调研与问题发现</h3>
+          <p>分析项目背景、用户需求和使用场景，明确设计目标，并提炼核心痛点与机会点。</p>
+        </article>
+        <article class="glass-card reveal">
+          <div class="card-index">02 / Structure</div>
+          <h3>功能与信息组织</h3>
+          <p>梳理用户路径、页面结构和功能层级，通过信息架构、流程图和服务蓝图建立清晰的设计逻辑。</p>
+        </article>
+        <article class="glass-card reveal">
+          <div class="card-index">03 / Visualize</div>
+          <h3>视觉设计与输出</h3>
+          <p>结合字体、色彩、图标、组件和版式规范，完成高保真界面、产品效果图与最终作品展示。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="works" class="shell">
+      <div class="section-head reveal">
+        <div>
+          <p class="section-kicker">Selected Works</p>
+          <h2 class="section-title">设计项目精选</h2>
+        </div>
+        <p class="section-desc">这里整理了我的实习 UI、在校项目、平面视觉与建模设计。每个项目都围绕具体使用场景展开，呈现从调研分析、功能规划到视觉表达的完整过程。</p>
+      </div>
+
+      <div class="filters reveal" aria-label="作品分类筛选">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="internship">实习作品</button>
+        <button class="filter-btn" data-filter="school">在校作品</button>
+        <button class="filter-btn" data-filter="graphic">其他设计</button>
+        <button class="filter-btn" data-filter="modeling">建模设计</button>
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card wide reveal" data-category="internship" style="--g1: linear-gradient(135deg, #b7ff4a, #143b20); --g2: linear-gradient(135deg, #61d8ff, #192654);">
+          <div class="thumb has-image">
+            <img src="assets/internship-emergency.jpg" alt="广中急救响应探索界面设计">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Internship UI</small>广中急救响应探索</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>UI Design / Emergency Response</span><span>2025-2026</span></div>
+            <h3>广中急救响应探索｜景区应急救援界面</h3>
+            <p>面向景区突发医疗救助场景，优化一键呼救、智能匹配、实时导航与全场救援支持流程，通过高辨识度入口与状态可视化提升紧急场景下的操作效率。</p>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="internship" style="--g1: linear-gradient(135deg, #61d8ff, #12445d); --g2: linear-gradient(135deg, #c8a3ff, #2f194f);">
+          <div class="thumb has-image">
+            <img src="assets/internship-ring.jpg" alt="运动戒指 App 设计界面">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Smart Ring</small>运动戒指 App 设计</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>UI Design / Health App</span><span>2025-2026</span></div>
+            <h3>运动戒指 App｜智能穿戴健康管理</h3>
+            <p>围绕智能戒指的数据采集与健康管理场景，设计睡眠、心率、运动、活动记录与数据分析页面，强调关键指标可读性与日常使用的轻量化体验。</p>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="school" style="--g1: linear-gradient(135deg, #ff5fd2, #3b1434); --g2: linear-gradient(135deg, #fff06a, #4c3f0b);">
+          <div class="thumb has-image">
+            <img src="assets/school-enongjiang.jpg" alt="E览农讲 APP 项目展示">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Course UI</small>E览农讲</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>UI Design / Cultural Tourism</span><span>2025</span></div>
+            <h3>E览农讲｜红色纪念馆导览服务设计</h3>
+            <p>围绕农讲所纪念馆的参观场景，整合预约参观、AR 导览、语音讲解、数字藏品与文创商城，提升红色文化传播的互动性与参观体验。</p>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="school" style="--g1: linear-gradient(135deg, #ffffff, #606060); --g2: linear-gradient(135deg, #b7ff4a, #2f5017);">
+          <div class="thumb has-image">
+            <img src="assets/school-arttime.jpg" alt="艺刻 ART TIME 项目展示">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>AI Tool</small>艺刻 ART TIME</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>UI Design / AI Time Manager</span><span>2025</span></div>
+            <h3>艺刻 ART TIME｜AI 辅助创作时间管理器</h3>
+            <p>针对艺术专业学生的非线性创作流程，设计结合 AI 任务拆解、灵感周期预测与时间可视化的创作管理工具，帮助用户规划创作节奏。</p>
+          </div>
+        </article>
+
+        <article class="work-card wide reveal" data-category="graphic" style="--g1: linear-gradient(135deg, #ff7a45, #5b1f12); --g2: linear-gradient(135deg, #61d8ff, #17374a);">
+          <div class="thumb has-image">
+            <img src="assets/graphic-posters.jpg" alt="其他设计海报合集">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Other Designs</small>平面视觉与海报设计</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>Graphic Design / Poster</span><span>2024-2025</span></div>
+            <h3>其他设计｜海报、邀请函与校园视觉</h3>
+            <p>整理活动海报、校园宣传物料、邀请函与文创视觉练习，关注字体层级、色彩情绪、版式节奏与信息传播效率。</p>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="graphic" style="--g1: linear-gradient(135deg, #fff06a, #4c3f0b); --g2: linear-gradient(135deg, #ff5fd2, #57204d);">
+          <div class="thumb has-image">
+            <img src="assets/graphic-invitation.jpg" alt="邀请函设计展示">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Invitation</small>邀请函设计</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>Graphic Design / Layout</span><span>2024-2025</span></div>
+            <h3>邀请函与节日视觉设计</h3>
+            <p>结合活动主题与校园文化语境，完成邀请函、节日视觉与信息排版设计，在图形氛围与可读性之间建立平衡。</p>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="modeling" style="--g1: linear-gradient(135deg, #b7ff4a, #335c18); --g2: linear-gradient(135deg, #61d8ff, #17374a);">
+          <div class="thumb has-image">
+            <img src="assets/model-zhuxianyin.jpg" alt="珠泫引建模设计展示">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Modeling</small>珠泫引</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>Modeling / Product Display</span><span>2025</span></div>
+            <h3>珠泫引｜产品建模与场景展示</h3>
+            <p>通过建模、材质与展示空间搭建，探索产品形态、视觉叙事与空间氛围之间的关系，强化作品的展示完整度。</p>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="modeling" style="--g1: linear-gradient(135deg, #c8a3ff, #2f194f); --g2: linear-gradient(135deg, #ffffff, #606060);">
+          <div class="thumb has-image">
+            <img src="assets/model-pinganzhen.jpg" alt="平安震袖口产品设计展示">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Inclusive Design</small>平安震·袖口</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>Product Design / Wearable Device</span><span>2025</span></div>
+            <h3>平安震｜听障老人出行安全装置</h3>
+            <p>面向听障老人的日常出行安全问题，设计可识别汽车鸣笛并通过震动提醒用户的袖口式装置，在功能安全与情感关怀之间建立连接。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="labs" class="shell">
+      <div class="section-head reveal">
+        <div>
+          <p class="section-kicker">Project Details</p>
+          <h2 class="section-title">项目内容展开</h2>
+        </div>
+        <p class="section-desc">这一部分把作品集中的重点内容放进网页，方便浏览者快速理解项目背景、设计策略与页面输出，而不是只停留在作品封面。</p>
+      </div>
+
+      <div class="project-detail-grid">
+        <article class="project-detail reveal">
+          <img src="assets/internship-emergency.jpg" alt="广中急救响应探索项目详情">
+          <div class="project-detail-body">
+            <h3>广中急救响应探索</h3>
+            <p>项目围绕景区突发医疗救助场景展开，重点解决用户在紧急情况下找不到入口、信息反馈不清晰、救援匹配效率低等问题。</p>
+            <p>设计上通过“一键呼救”、智能患者匹配、实时导航与状态提示，构建从首页、呼救页到救援页的完整应急响应链路。</p>
+            <div class="project-tags"><span>一键呼救</span><span>实时定位</span><span>救援匹配</span><span>高辨识度入口</span></div>
+          </div>
+        </article>
+
+        <article class="project-detail reveal">
+          <img src="assets/internship-ring.jpg" alt="运动戒指 App 项目详情">
+          <div class="project-detail-body">
+            <h3>运动戒指 App 设计</h3>
+            <p>项目面向智能穿戴设备的数据管理场景，围绕首页、睡眠、心率、运动、活动记录与数据分析等模块进行界面设计。</p>
+            <p>设计重点在于让健康数据更容易被理解，通过卡片化信息、图表可视化与轻量化导航提升用户日常查看效率。</p>
+            <div class="project-tags"><span>智能穿戴</span><span>健康数据</span><span>图表可视化</span><span>移动端 UI</span></div>
+          </div>
+        </article>
+
+        <article class="project-detail reveal">
+          <img src="assets/school-enongjiang.jpg" alt="E览农讲项目详情">
+          <div class="project-detail-body">
+            <h3>E览农讲</h3>
+            <p>项目以农讲所纪念馆为对象，结合红色文化传播与文旅数字化体验，完成用户画像、SWOT 分析、信息架构、服务蓝图和主要界面设计。</p>
+            <p>核心功能包括预约参观、AR 导览、语音讲解、数字藏品、地图打卡与文创商城，强调文化教育与参观互动的结合。</p>
+            <div class="project-tags"><span>文旅导览</span><span>服务设计</span><span>AR 导览</span><span>红色文化</span></div>
+          </div>
+        </article>
+
+        <article class="project-detail reveal">
+          <img src="assets/school-arttime.jpg" alt="艺刻 ART TIME 项目详情">
+          <div class="project-detail-body">
+            <h3>艺刻 ART TIME</h3>
+            <p>项目关注艺术专业学生在创作中时间结构不稳定、灵感重启成本高、计划难以线性推进的问题。</p>
+            <p>通过 AI 任务拆解、灵感周期预测、动态时间强度调整与创作记录复盘，构建更适合创意工作的时间管理体验。</p>
+            <div class="project-tags"><span>AI 工具</span><span>时间管理</span><span>任务拆解</span><span>创作流程</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="shell">
+      <div class="section-head reveal">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2 class="section-title">关于我与设计经历</h2>
+        </div>
+        <p class="section-desc">我是肖佳惠，产品设计专业背景，方向聚焦 UI 界面设计、视觉表达与数字化服务体验。我的经历涵盖课程项目、UI 实习、校园视觉设计与社会实践，希望通过清晰、有温度的设计连接用户需求与视觉表达。</p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <time>2025-2026 / UI Design Internship</time>
+          <h3>UI设计实习与产品视觉实践</h3>
+          <p>在南方科技大学科守博产品部相关实习中参与界面视觉与设计支持工作，关注页面结构、视觉层级、组件规范与用户体验表达，积累从需求理解到界面输出的项目经验。</p>
+        </div>
+        <div class="timeline-item">
+          <time>2022 - 2025 / Campus Visual Practice</time>
+          <h3>校园活动视觉设计与组织经历</h3>
+          <p>曾任团委书记处学生副书记、实践部部长参与校园活动宣传工作，主导并协助完成 50+ 场校园活动视觉设计，输出海报、邀请函、展板、易拉宝等宣传物料，服务覆盖 8000+ 师生。</p>
+        </div>
+        <div class="timeline-item">
+          <time>2024 / Awards & Creative Practice</time>
+          <h3>文创设计与视觉作品获奖</h3>
+          <p>在易班文创产品设计比赛、主题摄影活动等项目中进行创意设计与视觉表达实践，尝试将校园文化、节日主题与插画视觉结合，提升作品的传播性与完成度。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+      <time>2022 - Present / Product Design</time>
+      <h3>产品设计专业学习背景</h3>
+      <p>
+        就读于广州商学院艺术设计学院产品设计专业，系统学习交互设计、服务设计、产品设计与视觉表达相关课程，逐步形成从用户场景、功能逻辑到视觉落地的设计思维。
+      </p>
+    </div>
+  </div>
+</section>
+
+    <section id="contact" class="shell">
+      <div class="contact reveal">
+        <p class="section-kicker">Contact</p>
+        <h2>Let’s create thoughtful visual experiences.</h2>
+        <p>如果你对我的作品感兴趣，或想进一步了解我的 UI 设计、产品设计与视觉项目，欢迎通过邮件联系我。期待与你交流关于设计、体验与创意表达的更多可能。</p>
+        <a href="mailto:2178711096@qq.com" class="button primary">2178711096@qq.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <span>© 肖佳惠 Portfolio</span>
+    <span>PS / AI / Figma / Rhino / CAD / PR</span>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+
+    window.addEventListener('pointermove', (event) => {
+      root.style.setProperty('--x', `${event.clientX}px`);
+      root.style.setProperty('--y', `${event.clientY}px`);
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const workCards = document.querySelectorAll('.work-card');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+        workCards.forEach((card) => {
+          const shouldShow = filter === 'all' || card.dataset.category === filter;
+          card.style.display = shouldShow ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
