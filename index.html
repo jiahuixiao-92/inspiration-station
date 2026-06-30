@@ -585,7 +585,92 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
     }
+.project-expand {
+  display: none;
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255, 95, 95, 0.16), transparent 30%),
+    rgba(255,255,255,0.055);
+  overflow: hidden;
+}
 
+.project-expand.active {
+  display: block;
+  animation: detailFade 0.45s ease;
+}
+
+@keyframes detailFade {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-expand-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.project-expand-head h2 {
+  font-size: clamp(30px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  margin-bottom: 14px;
+}
+
+.project-expand-head p {
+  max-width: 760px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.detail-close {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  white-space: nowrap;
+}
+
+.detail-close:hover {
+  background: var(--text);
+  color: #050507;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.project-gallery img {
+  width: 100%;
+  display: block;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+.project-trigger {
+  cursor: pointer;
+}
+
+.project-trigger:hover .work-body h3 {
+  color: var(--accent);
+}
     .project-detail-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -844,6 +929,7 @@
     }
 
     @media (max-width: 920px) {
+      .project-gallery { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; padding-top: 86px; }
       .hero-board { min-height: 460px; }
@@ -1074,7 +1160,7 @@
         <div class="project-expand-head">
           <div>
             <p class="section-kicker">Internship UI Project</p>
-            <h2>广中急救响应探索｜项目内容展开</h2>
+            <h2>睿鹰急救响应探索｜项目内容展开</h2>
             <p>
               该项目围绕景区突发急救场景展开，重点优化一键呼救、志愿者匹配、AED 资源查询、救援状态反馈与全链路调度体验。通过角色差异化适配和高识别度视觉设计，提升紧急场景下的信息获取效率与用户操作效率。
             </p>
@@ -1232,6 +1318,31 @@
         });
       });
     });
+    const projectTriggers = document.querySelectorAll('.project-trigger');
+const detailCloseButtons = document.querySelectorAll('.detail-close');
+
+projectTriggers.forEach((card) => {
+  card.addEventListener('click', () => {
+    const targetId = card.dataset.target;
+    const target = document.getElementById(targetId);
+
+    if (!target) return;
+
+    document.querySelectorAll('.project-expand').forEach((detail) => {
+      if (detail !== target) detail.classList.remove('active');
+    });
+
+    target.classList.add('active');
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+detailCloseButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const detail = button.closest('.project-expand');
+    if (detail) detail.classList.remove('active');
+  });
+});
   </script>
 </body>
 </html>
