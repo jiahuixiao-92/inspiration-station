@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | 静态作品集网页</title>
+  <title>肖佳惠设计作品集 | Jiahui Xiao Portfolio</title>
   <style>
     :root {
       --bg: #050507;
@@ -536,25 +536,110 @@
         linear-gradient(45deg, transparent 0 48%, rgba(255,255,255,0.12) 48% 49%, transparent 49% 100%);
       mix-blend-mode: screen;
     }
-    .thumb-label {
-  position: absolute;
-  left: 24px;
-  bottom: 22px;
-  z-index: 2;
-  color: rgba(255,255,255,0.92);
-  font-size: 30px;
-  font-weight: 900;
-  letter-spacing: -0.05em;
-}
 
-.thumb-label small {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--accent);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
+    .thumb.has-image::before,
+    .thumb.has-image::after {
+      display: none;
+    }
+
+    .thumb.has-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.78;
+      transform: scale(1.03);
+      transition: 0.32s ease;
+    }
+
+    .work-card:hover .thumb.has-image img {
+      opacity: 0.92;
+      transform: scale(1.08);
+    }
+
+    .thumb.has-image .thumb-lines {
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.72)),
+        linear-gradient(120deg, transparent 0 46%, rgba(255,255,255,0.16) 46% 47%, transparent 47% 100%);
+      mix-blend-mode: normal;
+    }
+
+    .thumb-label {
+      position: absolute;
+      left: 24px;
+      bottom: 22px;
+      z-index: 2;
+      color: rgba(255,255,255,0.92);
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      text-shadow: 0 10px 24px rgba(0,0,0,0.42);
+    }
+
+    .thumb-label small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .project-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .project-detail {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .project-detail img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      opacity: 0.86;
+    }
+
+    .project-detail-body {
+      padding: 24px;
+    }
+
+    .project-detail-body h3 {
+      font-size: 26px;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .project-detail-body p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .project-tags span {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      background: rgba(255,255,255,0.045);
+    }
+
     .work-body {
       padding: 22px;
     }
@@ -765,6 +850,7 @@
       .grid-3 { grid-template-columns: 1fr; }
       .work-card, .work-card.wide { grid-column: span 12; }
       .labs { grid-template-columns: 1fr; }
+      .project-detail-grid { grid-template-columns: 1fr; }
       .section-head { display: block; }
       .section-desc { margin-top: 16px; }
     }
@@ -792,8 +878,8 @@
     </a>
     <div class="nav-links">
       <a href="#method">方法论</a>
-      <a href="#works">作品归档</a>
-      <a href="#labs">实验室</a>
+      <a href="#works">作品精选</a>
+      <a href="#labs">更多探索</a>
       <a href="#about">关于</a>
     </div>
     <a class="nav-cta" href="#contact">联系我</a>
@@ -816,7 +902,7 @@
         <div class="orb two"></div>
         <div class="orb three"></div>
         <div class="board-card">
-          <h2>Personal Visual Archive</h2>
+          <h2>Personal Design Archive</h2>
           <p>这里整理了我的UI界面、产品设计与平面视觉作品。每个项目都围绕具体场景展开，展示从问题发现、用户分析、功能规划到视觉落地的设计过程。</p>
           <div class="stats">
             <div class="stat"><strong>06</strong><span>设计项目</span></div>
@@ -868,106 +954,173 @@
           <p class="section-kicker">Selected Works</p>
           <h2 class="section-title">设计项目精选</h2>
         </div>
-        <p class="section-desc">这里整理了我的 UI 界面设计、产品设计与平面视觉项目。每个项目都围绕具体使用场景展开，呈现从调研分析、功能规划到视觉表达的完整过程。</p>
+        <p class="section-desc">这里整理了我的实习 UI、在校项目、平面视觉与建模设计。每个项目都围绕具体使用场景展开，呈现从调研分析、功能规划到视觉表达的完整过程。</p>
       </div>
 
       <div class="filters reveal" aria-label="作品分类筛选">
         <button class="filter-btn active" data-filter="all">全部</button>
-        <button class="filter-btn" data-filter="ui">实习UI界面</button>
-        <button class="filter-btn" data-filter="practice">课程项目</button>
-        <button class="filter-btn" data-filter="graphic">平面视觉</button>
-        <button class="filter-btn" data-filter="product">产品设计</button>
+        <button class="filter-btn" data-filter="internship">实习作品</button>
+        <button class="filter-btn" data-filter="school">在校作品</button>
+        <button class="filter-btn" data-filter="graphic">其他设计</button>
+        <button class="filter-btn" data-filter="modeling">建模设计</button>
       </div>
 
       <div class="work-grid">
-  <article class="work-card wide reveal" data-category="ui" style="--g1: linear-gradient(135deg, #b7ff4a, #143b20); --g2: linear-gradient(135deg, #61d8ff, #192654);">
-    <div class="thumb">
-      <span class="thumb-lines"></span>
-      <div class="thumb-label"><small>Internship</small>实习UI界面</div>
-    </div>
-    <div class="work-body">
-      <div class="work-meta"><span>UI Design / Internship</span><span>2025-2026</span></div>
-      <h3>实习 UI 界面设计</h3>
-      <p>收录我在实习期间参与的界面视觉与产品设计支持内容，重点关注页面结构、视觉层级、组件规范和用户体验表达，呈现从需求理解到界面输出的实践过程。</p>
-    </div>
-  </article>
+        <article class="work-card wide reveal" data-category="internship" style="--g1: linear-gradient(135deg, #b7ff4a, #143b20); --g2: linear-gradient(135deg, #61d8ff, #192654);">
+          <div class="thumb has-image">
+            <img src="assets/internship-emergency.jpg" alt="广中急救响应探索界面设计">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Internship UI</small>广中急救响应探索</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>UI Design / Emergency Response</span><span>2025-2026</span></div>
+            <h3>广中急救响应探索｜景区应急救援界面</h3>
+            <p>面向景区突发医疗救助场景，优化一键呼救、智能匹配、实时导航与全场救援支持流程，通过高辨识度入口与状态可视化提升紧急场景下的操作效率。</p>
+          </div>
+        </article>
 
-  <article class="work-card reveal" data-category="practice" style="--g1: linear-gradient(135deg, #ff5fd2, #3b1434); --g2: linear-gradient(135deg, #fff06a, #4c3f0b);">
-    <div class="thumb">
-      <span class="thumb-lines"></span>
-      <div class="thumb-label"><small>Course Works</small>课程项目</div>
-    </div>
-    <div class="work-body">
-      <div class="work-meta"><span>Course Project / Interface</span><span>2025</span></div>
-      <h3>课程项目设计</h3>
-      <p>包括 E览农讲、艺刻 ART TIME 等课程项目，围绕文旅导览、AI 辅助创作管理等主题，展示调研分析、用户画像、信息架构、流程设计与高保真界面输出。</p>
-    </div>
-  </article>
+        <article class="work-card reveal" data-category="internship" style="--g1: linear-gradient(135deg, #61d8ff, #12445d); --g2: linear-gradient(135deg, #c8a3ff, #2f194f);">
+          <div class="thumb has-image">
+            <img src="assets/internship-ring.jpg" alt="运动戒指 App 设计界面">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Smart Ring</small>运动戒指 App 设计</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>UI Design / Health App</span><span>2025-2026</span></div>
+            <h3>运动戒指 App｜智能穿戴健康管理</h3>
+            <p>围绕智能戒指的数据采集与健康管理场景，设计睡眠、心率、运动、活动记录与数据分析页面，强调关键指标可读性与日常使用的轻量化体验。</p>
+          </div>
+        </article>
 
-  <article class="work-card reveal" data-category="graphic" style="--g1: linear-gradient(135deg, #ffffff, #606060); --g2: linear-gradient(135deg, #b7ff4a, #2f5017);">
-    <div class="thumb">
-      <span class="thumb-lines"></span>
-      <div class="thumb-label"><small>Graphic Design</small>平面视觉</div>
-    </div>
-    <div class="work-body">
-      <div class="work-meta"><span>Graphic Design / Visual</span><span>2024-2025</span></div>
-      <h3>平面视觉设计</h3>
-      <p>整理海报、活动视觉、校园宣传物料与墙绘视觉项目，尝试通过字体、色彩、图形和版式建立更清晰的视觉表达与传播效果。</p>
-    </div>
-  </article>
+        <article class="work-card reveal" data-category="school" style="--g1: linear-gradient(135deg, #ff5fd2, #3b1434); --g2: linear-gradient(135deg, #fff06a, #4c3f0b);">
+          <div class="thumb has-image">
+            <img src="assets/school-enongjiang.jpg" alt="E览农讲 APP 项目展示">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Course UI</small>E览农讲</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>UI Design / Cultural Tourism</span><span>2025</span></div>
+            <h3>E览农讲｜红色纪念馆导览服务设计</h3>
+            <p>围绕农讲所纪念馆的参观场景，整合预约参观、AR 导览、语音讲解、数字藏品与文创商城，提升红色文化传播的互动性与参观体验。</p>
+          </div>
+        </article>
 
-  <article class="work-card wide reveal" data-category="product" style="--g1: linear-gradient(135deg, #61d8ff, #12445d); --g2: linear-gradient(135deg, #c8a3ff, #2f194f);">
-    <div class="thumb">
-      <span class="thumb-lines"></span>
-      <div class="thumb-label"><small>Product Design</small>产品设计</div>
-    </div>
-    <div class="work-body">
-      <div class="work-meta"><span>Product Design / Service</span><span>2025</span></div>
-      <h3>产品设计作品</h3>
-      <p>包含 Mah Jong 沙发扎染系列、平安震听障老人出行安全装置等项目，关注非遗元素转译、适老化设计、功能结构与情感化体验表达。</p>
-    </div>
-  </article>
-</div>
+        <article class="work-card reveal" data-category="school" style="--g1: linear-gradient(135deg, #ffffff, #606060); --g2: linear-gradient(135deg, #b7ff4a, #2f5017);">
+          <div class="thumb has-image">
+            <img src="assets/school-arttime.jpg" alt="艺刻 ART TIME 项目展示">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>AI Tool</small>艺刻 ART TIME</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>UI Design / AI Time Manager</span><span>2025</span></div>
+            <h3>艺刻 ART TIME｜AI 辅助创作时间管理器</h3>
+            <p>针对艺术专业学生的非线性创作流程，设计结合 AI 任务拆解、灵感周期预测与时间可视化的创作管理工具，帮助用户规划创作节奏。</p>
+          </div>
+        </article>
+
+        <article class="work-card wide reveal" data-category="graphic" style="--g1: linear-gradient(135deg, #ff7a45, #5b1f12); --g2: linear-gradient(135deg, #61d8ff, #17374a);">
+          <div class="thumb has-image">
+            <img src="assets/graphic-posters.jpg" alt="其他设计海报合集">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Other Designs</small>平面视觉与海报设计</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>Graphic Design / Poster</span><span>2024-2025</span></div>
+            <h3>其他设计｜海报、邀请函与校园视觉</h3>
+            <p>整理活动海报、校园宣传物料、邀请函与文创视觉练习，关注字体层级、色彩情绪、版式节奏与信息传播效率。</p>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="graphic" style="--g1: linear-gradient(135deg, #fff06a, #4c3f0b); --g2: linear-gradient(135deg, #ff5fd2, #57204d);">
+          <div class="thumb has-image">
+            <img src="assets/graphic-invitation.jpg" alt="邀请函设计展示">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Invitation</small>邀请函设计</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>Graphic Design / Layout</span><span>2024-2025</span></div>
+            <h3>邀请函与节日视觉设计</h3>
+            <p>结合活动主题与校园文化语境，完成邀请函、节日视觉与信息排版设计，在图形氛围与可读性之间建立平衡。</p>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="modeling" style="--g1: linear-gradient(135deg, #b7ff4a, #335c18); --g2: linear-gradient(135deg, #61d8ff, #17374a);">
+          <div class="thumb has-image">
+            <img src="assets/model-zhuxianyin.jpg" alt="珠泫引建模设计展示">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Modeling</small>珠泫引</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>Modeling / Product Display</span><span>2025</span></div>
+            <h3>珠泫引｜产品建模与场景展示</h3>
+            <p>通过建模、材质与展示空间搭建，探索产品形态、视觉叙事与空间氛围之间的关系，强化作品的展示完整度。</p>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-category="modeling" style="--g1: linear-gradient(135deg, #c8a3ff, #2f194f); --g2: linear-gradient(135deg, #ffffff, #606060);">
+          <div class="thumb has-image">
+            <img src="assets/model-pinganzhen.jpg" alt="平安震袖口产品设计展示">
+            <span class="thumb-lines"></span>
+            <div class="thumb-label"><small>Inclusive Design</small>平安震·袖口</div>
+          </div>
+          <div class="work-body">
+            <div class="work-meta"><span>Product Design / Wearable Device</span><span>2025</span></div>
+            <h3>平安震｜听障老人出行安全装置</h3>
+            <p>面向听障老人的日常出行安全问题，设计可识别汽车鸣笛并通过震动提醒用户的袖口式装置，在功能安全与情感关怀之间建立连接。</p>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="labs" class="shell">
       <div class="section-head reveal">
         <div>
-          <p class="section-kicker">More Explorations</p>
-          <h2 class="section-title">平面视觉与创意探索</h2>
+          <p class="section-kicker">Project Details</p>
+          <h2 class="section-title">项目内容展开</h2>
         </div>
-        <p class="section-desc">除了 UI 与产品设计，我也持续进行平面视觉、品牌图形和空间墙绘等创作练习，尝试在不同媒介中建立统一的视觉表达能力。</p>
+        <p class="section-desc">这一部分把作品集中的重点内容放进网页，方便浏览者快速理解项目背景、设计策略与页面输出，而不是只停留在作品封面。</p>
       </div>
 
-      <div class="labs">
-        <div class="ai-panel reveal">
-          <p class="section-kicker">Graphic Practice</p>
-          <h2>墙绘项目与空间视觉探索</h2>
-          <div class="prompt-box">这一部分收录了我参与的墙绘与公共空间视觉项目，包括品牌 IP 场景墙绘和乡村文化主题墙绘。项目中需要结合空间环境、受众特点与视觉主题，完成从画面构思到落地呈现的设计表达。</div>
-          <div class="recommendation">
-            <div class="rec-dot"></div>
-            <div><strong>视觉方向 01</strong><span>品牌IP与空间场景结合</span></div>
+      <div class="project-detail-grid">
+        <article class="project-detail reveal">
+          <img src="assets/internship-emergency.jpg" alt="广中急救响应探索项目详情">
+          <div class="project-detail-body">
+            <h3>广中急救响应探索</h3>
+            <p>项目围绕景区突发医疗救助场景展开，重点解决用户在紧急情况下找不到入口、信息反馈不清晰、救援匹配效率低等问题。</p>
+            <p>设计上通过“一键呼救”、智能患者匹配、实时导航与状态提示，构建从首页、呼救页到救援页的完整应急响应链路。</p>
+            <div class="project-tags"><span>一键呼救</span><span>实时定位</span><span>救援匹配</span><span>高辨识度入口</span></div>
           </div>
-          <div class="recommendation">
-            <div class="rec-dot"></div>
-            <div><strong>视觉方向 02</strong><span>3D 玻璃材质与网页卡片结合</span></div>
-          </div>
-          <div class="recommendation">
-            <div class="rec-dot"></div>
-            <div><strong>视觉方向 03</strong><span>用关键词标签组织视觉研究过程</span></div>
-          </div>
-        </div>
+        </article>
 
-        <div class="three-panel reveal" aria-label="3D cube animation">
-          <div class="cube">
-            <div class="face front"></div>
-            <div class="face back"></div>
-            <div class="face left"></div>
-            <div class="face right"></div>
-            <div class="face top"></div>
-            <div class="face bottom"></div>
+        <article class="project-detail reveal">
+          <img src="assets/internship-ring.jpg" alt="运动戒指 App 项目详情">
+          <div class="project-detail-body">
+            <h3>运动戒指 App 设计</h3>
+            <p>项目面向智能穿戴设备的数据管理场景，围绕首页、睡眠、心率、运动、活动记录与数据分析等模块进行界面设计。</p>
+            <p>设计重点在于让健康数据更容易被理解，通过卡片化信息、图表可视化与轻量化导航提升用户日常查看效率。</p>
+            <div class="project-tags"><span>智能穿戴</span><span>健康数据</span><span>图表可视化</span><span>移动端 UI</span></div>
           </div>
-        </div>
+        </article>
+
+        <article class="project-detail reveal">
+          <img src="assets/school-enongjiang.jpg" alt="E览农讲项目详情">
+          <div class="project-detail-body">
+            <h3>E览农讲</h3>
+            <p>项目以农讲所纪念馆为对象，结合红色文化传播与文旅数字化体验，完成用户画像、SWOT 分析、信息架构、服务蓝图和主要界面设计。</p>
+            <p>核心功能包括预约参观、AR 导览、语音讲解、数字藏品、地图打卡与文创商城，强调文化教育与参观互动的结合。</p>
+            <div class="project-tags"><span>文旅导览</span><span>服务设计</span><span>AR 导览</span><span>红色文化</span></div>
+          </div>
+        </article>
+
+        <article class="project-detail reveal">
+          <img src="assets/school-arttime.jpg" alt="艺刻 ART TIME 项目详情">
+          <div class="project-detail-body">
+            <h3>艺刻 ART TIME</h3>
+            <p>项目关注艺术专业学生在创作中时间结构不稳定、灵感重启成本高、计划难以线性推进的问题。</p>
+            <p>通过 AI 任务拆解、灵感周期预测、动态时间强度调整与创作记录复盘，构建更适合创意工作的时间管理体验。</p>
+            <div class="project-tags"><span>AI 工具</span><span>时间管理</span><span>任务拆解</span><span>创作流程</span></div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -1010,9 +1163,9 @@
     <section id="contact" class="shell">
       <div class="contact reveal">
         <p class="section-kicker">Contact</p>
-        <h2>Let’s turn ideas into visual.</h2>
-        <p>如果你对我的作品感兴趣，或想聊聊合作、项目与创意，欢迎通过邮件或社交平台联系我。</p>
-        <a href="mailto:hello@example.com" class="button primary">2178711096@qq.com</a>
+        <h2>Let’s create thoughtful visual experiences.</h2>
+        <p>如果你对我的作品感兴趣，或想进一步了解我的 UI 设计、产品设计与视觉项目，欢迎通过邮件联系我。期待与你交流关于设计、体验与创意表达的更多可能。</p>
+        <a href="mailto:2178711096@qq.com" class="button primary">2178711096@qq.com</a>
       </div>
     </section>
   </main>
